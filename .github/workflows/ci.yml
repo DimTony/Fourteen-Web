@@ -22,15 +22,12 @@ jobs:
           cache-dependency-path: "package-lock.json"
 
       - name: Install dependencies
-        working-directory: web
         run: npm ci
 
       - name: Run linting
-        working-directory: web
         run: npm run lint
 
       - name: Run build
-        working-directory: web
         run: npm run build
 
   deploy:
@@ -48,4 +45,3 @@ jobs:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          working-directory: web
