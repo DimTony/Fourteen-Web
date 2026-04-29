@@ -38,7 +38,7 @@ function AuthCallback() {
       });
 
       const exchangeCode = async () => {
-        const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:5261";
+        const baseUrl = process.env.NEXT_PUBLIC_INSIGHTA_API_URL || "http://localhost:5261";
         const fetchUrl = `${baseUrl}/auth/github/callback?${params.toString()}`;
 
         const tokenResponse = await fetch(fetchUrl, {
