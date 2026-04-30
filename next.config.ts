@@ -24,8 +24,7 @@ const nextConfig: NextConfig = {
   // },
   // next.config.ts
   async rewrites() {
-    const backendUrl =
-      process.env.NEXT_PUBLIC_INSIGHTA_API_URL ?? "http://localhost:5261";
+    const backendUrl = process.env.BACKEND_URL ?? "http://localhost:5261";
 
     return [
       {
