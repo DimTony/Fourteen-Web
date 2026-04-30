@@ -11,7 +11,7 @@ export interface User {
 
 export async function getCurrentUser(): Promise<User | null> {
   try {
-    const response: any = await api.get("/auth/me");
+    const response: any = await api.get("/api/users/me");
     if (response?.status === "success" && response?.data) {
       return response.data;
     }
@@ -38,7 +38,7 @@ export async function logoutUser(): Promise<any> {
 
 export async function getMetrics(): Promise<any> {
   try {
-    const response: any = await api.get("/users/stats");
+    const response: any = await api.get("/api/users/stats");
     
     if (response?.status === "success" && response?.data) {
       return response.data;
@@ -48,13 +48,4 @@ export async function getMetrics(): Promise<any> {
     console.error("Failed to fetch stats:", error);
     return null;
   }
-}
-
-export function isAuthenticated(): boolean {
-  if (typeof document === "undefined") return false;
-  return document.cookie.includes("access_token=");
-}
-
-export function logout(): Promise<void> {
-  return api.post("/auth/logout", {});
 }
