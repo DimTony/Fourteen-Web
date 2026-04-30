@@ -38,9 +38,10 @@ function AuthCallback() {
       });
 
       const exchangeCode = async () => {
-        const baseUrl = process.env.NEXT_PUBLIC_INSIGHTA_API_URL || "http://localhost:5261";
-        const fetchUrl = `${baseUrl}/auth/github/callback?${params.toString()}`;
+        // const baseUrl = process.env.NEXT_PUBLIC_INSIGHTA_API_URL || "http://localhost:5261";
+        // const fetchUrl = `${baseUrl}/auth/github/callback?${params.toString()}`;
 
+        const fetchUrl = `/auth/github/callback?${params.toString()}`;
         const tokenResponse = await fetch(fetchUrl, {
           method: "GET",
           credentials: "include",
