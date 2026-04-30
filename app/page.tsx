@@ -9,27 +9,21 @@ import { GitBranch } from "lucide-react";
 
 export default function LoginPage() {
   async function handleLogin() {
-    const verifier = generateCodeVerifier();
-    const challenge = await generateCodeChallenge(verifier);
     const state = generateState();
 
-    sessionStorage.setItem("pkce_verifier", verifier);
     sessionStorage.setItem("oauth_state", state);
 
     const params = new URLSearchParams({
-      code_challenge: challenge,
       state,
     });
 
-    // const baseUrl = process.env.NEXT_PUBLIC_INSIGHTA_API_URL || "";
-    // window.location.href = `${baseUrl}/auth/github?${params}`;
-    window.location.href = `/auth/github?${params}`;
+    window.location.href = `/auth/github?${params.toString()}`;
   }
 
   return (
     <main className="w-full h-screen">
       <div className="size-full flex items-center justify-center bg-gradient-to-br from-zinc-900 to-zinc-800">
-        <div className="w-full shadow-2xl max-w-md p-8 bg-white rounded-lg shadow-2xl">
+        <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-2xl">
           <div className="text-center mb-8">
             <h1 className="mb-2">Welcome Back</h1>
             <p className="text-zinc-600">Sign in to continue to your account</p>
