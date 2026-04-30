@@ -164,7 +164,6 @@ const Profiles = () => {
           </div>
 
           <div className="flex items-center gap-6">
-            
             <nav className="flex items-center gap-6">
               {navItems.map((item) => (
                 <button
@@ -177,7 +176,6 @@ const Profiles = () => {
               ))}
             </nav>
 
-            
             <button
               onClick={handleLogout}
               className="px-4 py-2 bg-red-600 text-white text-sm rounded-lg hover:bg-red-700 transition"
@@ -190,6 +188,15 @@ const Profiles = () => {
         <div className="bg-white rounded-lg shadow-sm border border-zinc-200">
           <div className="p-6 border-b border-zinc-200">
             <div className="flex flex-col md:flex-row md:justify-end gap-4">
+              {user?.role === "admin" && (
+                <button
+                  onClick={() => router.push("/profiles/create")}
+                  className="px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition"
+                >
+                  Create Profile
+                </button>
+              )}
+              
               <FilterPopover
                 draftFilters={draftFilters}
                 setDraftFilters={setDraftFilters}

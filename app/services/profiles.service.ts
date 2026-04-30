@@ -11,6 +11,10 @@ export async function getProfile(id: string): Promise<Profile> {
   return await api.get(`/api/profiles/${id}`);
 }
 
+export async function createProfile(data: { name: string }): Promise<Profile> {
+  return await api.post("/api/profiles", data);
+}
+
 export async function getProfiles(filters?: {
   page?: number;
   limit?: number;
