@@ -21,8 +21,9 @@ export default function LoginPage() {
       state,
     });
 
-    const baseUrl = process.env.NEXT_PUBLIC_INSIGHTA_API_URL || "http://localhost:5261";
-    window.location.href = `${baseUrl}/auth/github?${params}`;
+    // const baseUrl = process.env.NEXT_PUBLIC_INSIGHTA_API_URL || "";
+    // window.location.href = `${baseUrl}/auth/github?${params}`;
+    window.location.href = `/auth/github?${params}`;
   }
 
   return (
