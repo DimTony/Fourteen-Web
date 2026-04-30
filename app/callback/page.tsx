@@ -38,7 +38,7 @@ function AuthCallback() {
       });
 
       const exchangeCode = async () => {
-        // const baseUrl = process.env.NEXT_PUBLIC_INSIGHTA_API_URL || "http://localhost:5261";
+        // const baseUrl = process.env.NEXT_PUBLIC_INSIGHTA_API_URL || "";
         // const fetchUrl = `${baseUrl}/auth/github/callback?${params.toString()}`;
 
         const fetchUrl = `/auth/github/callback?${params.toString()}`;
