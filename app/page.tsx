@@ -9,15 +9,7 @@ import { GitBranch } from "lucide-react";
 
 export default function LoginPage() {
   async function handleLogin() {
-    const state = generateState();
-
-    sessionStorage.setItem("oauth_state", state);
-
-    const params = new URLSearchParams({
-      state,
-    });
-
-    window.location.href = `/auth/github?${params.toString()}`;
+    window.location.href = `/auth/github`;
   }
 
   return (
