@@ -26,19 +26,6 @@ const nextConfig: NextConfig = {
   async rewrites() {
     const backendUrl = process.env.BACKEND_URL ?? "";
 
-    if (process.env.NODE_ENV === "development") {
-      return [
-        {
-          source: "/auth/:path*",
-          destination: `${process.env.NEXT_PUBLIC_INSIGHTA_API_URL ?? "http://localhost:5261"}/auth/:path*`,
-        },
-        {
-          source: "/api/:path*",
-          destination: `${process.env.NEXT_PUBLIC_INSIGHTA_API_URL ?? "http://localhost:5261"}/api/:path*`,
-        },
-      ];
-    }
-
     return [
       {
         source: "/auth/:path*",
